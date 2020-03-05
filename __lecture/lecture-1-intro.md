@@ -140,7 +140,7 @@ A _slot_ in which we can write JavaScript expressions.
 ```jsx
 let index = 0;
 
-<div id={'item-' + index} />;
+<div id={`item-${index}`} />;
 ```
 
 ---
@@ -164,6 +164,8 @@ render(
 // ⚠️ New notation! another way to use of &&.
 ```
 
+//the 'isOnline' will affect the rendering live - it will be removed once changed to false
+
 ---
 
 # Exercise
@@ -175,9 +177,17 @@ let birthdayCakeImage = '/images/cake.jpg';
 let age = 10;
 
 <div className="wrapper">
-  <img src={birthdayCakeImage} />
+  <img src={birthdayCakeImage} alt='cake'/>
   <p>Happy {age}th birthday!</p>
 </div>;
+```
+
+```html
+<div class = 'wrapper'>
+  <img src='/images/cake.jpg' alt='cake'/>
+  <p>Happy <span id='age'>10</span>th birthday!</p>
+</div>
+<script> </script>
 ```
 
 ---
@@ -197,6 +207,15 @@ let agreeToTerms = false;
   )}
 </div>;
 ```
+```html
+<div>
+  <label for='terms-of-service'>
+  <input type='checkbox' id='terms-of-service' /> I agree to the terms
+  </label>
+</div>
+```
+
+//for legal interests, when signing things we don't want to have it display none. we would want it to exist only when checked.
 
 ---
 
@@ -262,8 +281,54 @@ const pets = [
     </li>
   </ul>
 </div>;
+  
 ```
+```html
+<div>
+  <h1 class="title">My pets:</h1>
+  <ul>
+    <li>
+      <h3>Bark Obama</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Age</th>
+            <th>Species</th>
+            <th>Breed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>3</td>
+            <td>dog</td>
+            <td>Labradoodle</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
 
+    <li>
+      <h3>Chairman Meow</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Age</th>
+            <th>Species</th>
+            <th>Breed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>8</td>
+            <td>cat</td>
+            <td>Ragdoll</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+  </ul>
+</div>
+```
 ---
 
 # Rendering
@@ -280,7 +345,7 @@ ReactDOM.render(
 # React vs ReactDOM
 
 - React is platform-independent
-- ReactDOM is all the code specific for web (as opposed to, for example, React Native).
+- ReactDOM is all the code specific for web (as opposed to, for example, React Native (for mobile apps)).
 
 ---
 
@@ -330,6 +395,8 @@ Now it fits on the screen:
   </ul>
 </div>
 ```
+
+//when creating a component it is camel cased and capitalized 
 
 ---
 
