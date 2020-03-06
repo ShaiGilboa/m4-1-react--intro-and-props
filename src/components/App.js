@@ -7,10 +7,11 @@ import Footer from './Footer';
 import './App.css';
 
 function App(props) {
+  console.log(props.currentUser);
   return (
     <div className="wrapper">
       <Header />
-      <ChatStream />
+      <ChatStream messages={props.conversation.messages} currentUser={props.currentUser} />
       <Footer />
     </div>
   );
