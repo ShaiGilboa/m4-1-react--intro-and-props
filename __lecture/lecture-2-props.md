@@ -102,6 +102,20 @@ function VideoPlayer(props) {
   );
 }
 ```
+```jsx
+function VideoPlayer({src, width, height, text}) {
+  return (
+    <div>
+      <video
+        src={src}
+        width={width}
+        height={height}
+      />
+      <p>{text}</p>
+    </div>
+  );
+}
+```
 
 ---
 
@@ -129,6 +143,42 @@ function Tweet(props) {
 }
 ```
 
+```jsx
+const User = ({userName, handle, date}) => {
+  return (
+          <span className="user-name">{userName}</span>
+          <span className="handle">{handle}</span>
+          <span className="date">{date}</span>
+  );
+}
+
+const Buttons = () => {
+  return (
+    <button>Reply</button>
+    <button>Retweet</button>
+    <button>Like</button>
+    <button>Share</button>
+  );
+}
+
+function Tweet({ src, userName, handle, date, tweet}) {
+  return (
+    <div>
+      <Avatar src={src} />
+    <div>
+        <p>
+          <User userName = {userName} handel = {handle} date = {date} />
+        </p>
+        <p>{tweet}</p>
+        <div>
+          <Buttons />
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
 ---
 
 ```jsx
@@ -140,6 +190,21 @@ function Header(props) {
       <nav>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
+      </nav>
+    </header>
+  );
+}
+```
+
+```jsx
+function Header({header, nav}) {
+  return (
+    <header>
+      <h1>{header}</h1>
+
+      <nav>
+        <a href={nav.first.url}>{nav.first.title}</a>
+        <a href={nav.second.url}>{nav.second.title}</a>
       </nav>
     </header>
   );
@@ -256,6 +321,15 @@ const pets = [
 </div>;
 ```
 
+```jsx
+<div>
+  <h1 className="title">My pets:</h1>
+  <ul>
+    {pets.map(pet=><PetInfo pet={pet}/>);}
+  </ul>
+</div>;
+
+```
 ---
 
 ```jsx
@@ -289,7 +363,14 @@ const pizzaToppings = [
   <Topping name="broccoli" />
 </Pizza>
 ```
-
+```jsx
+<Pizza>
+  {pizzaToppings
+  .filter(topping => topping.isVegetarian)
+  .map(topping => <Topping name={topping.name} />)
+  }
+</Pizza>
+```
 Hint: You'll need `filter` as well as `map`
 
 ---

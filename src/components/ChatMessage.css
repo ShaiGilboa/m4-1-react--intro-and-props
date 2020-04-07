@@ -1,0 +1,73 @@
+/* @import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap+Sans+Pro:regular,bold,italic&subset=latin,latin-ext') */
+
+.chat-message{
+    position: relative;
+    display: flex;
+    padding: 0px;
+    margin:5px; 
+}
+
+.content {
+    font-size: 1.5rem;
+}
+
+.user-name{
+    color: lightslategray;
+    font-size: .8rem;
+    margin: 0;
+}
+
+.user-image{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    bottom: 0;
+    padding: 0 3px;
+}
+
+.sent {
+    display: flex;
+    width: calc(100vw - 30px);
+    justify-content: flex-end;
+}
+
+.received{
+    margin-left: 40px;
+}
+
+.message {
+    border-radius: 15px;
+    padding: 5px;
+    margin:0;
+    max-width: 40vw;;
+}
+
+.message-sent {
+    background-color: #E9E9EB;
+
+}
+
+.message-received{
+    background-color: #1085F9;
+}
+
+.timestamp {
+    /* font-family: 'Orbitron', sans-serif; */
+}
+
+.tip-sent {
+    position: absolute;
+    bottom:0;
+    right: -3px;
+}
+
+.tip-received {
+    position: absolute;
+    bottom:0;
+    left:30px;
+}
+
+.none {
+    display: none;
+}

@@ -15,12 +15,12 @@ function Button(props) {
 }
 
 // make it _importable_ from other files_
-export default Button;
+export default { Button, Thing };
 ```
 
 ```js
 // _Import_ it into the file where you want to use it.
-import Button from '../Button';
+import { Button, Thing } from '../Button';
 // This replaces the "require()" syntax used in Node
 ```
 
